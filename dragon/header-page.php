@@ -20,7 +20,7 @@
 
 <body>
 
-	<header class="header header--page">
+	<header class="header">
 		<div class="header__container container">
 
 			<button class="hamburger" type="button">

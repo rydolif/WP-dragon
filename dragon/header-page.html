@@ -10,13 +10,15 @@
 	<link rel="icon" href="<?php the_field('favicon', 'option'); ?>">
 	<meta name="theme-color" content="#000">
 
+	<link rel="stylesheet" href="css/main.min.css?v=1">
+
 	<link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap&subset=cyrillic-ext" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800&display=swap&subset=latin-ext" rel="stylesheet">
 
 
 </head>
 
-	<?php wp_head(); ?>
+<?php wp_head(); ?>
 
 <body>
 
@@ -41,13 +43,13 @@
 
 				<div class="nav__info">
 					<div class="header__info_tel">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/call.png" alt="">
+						<img src="img/call.png" alt="">
 						<a href="tel:<?php the_field('phone1', 'option'); ?>"><?php the_field('phone1', 'option'); ?></a>
 						<a href="tel:<?php the_field('phone2', 'option'); ?>"><?php the_field('phone2', 'option'); ?></a>
 						<a href="tel:<?php the_field('phone3', 'option'); ?>"><?php the_field('phone3', 'option'); ?></a>
 					</div>
 					<div class="header__info_time">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/time.png" alt="">
+						<img src="img/time.png" alt="">
 						<p><?php the_field('time', 'option'); ?></p>
 					</div>
 				</div>
@@ -57,19 +59,19 @@
 			<div class="header__info">
 
 				<div class="header__info_tel">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/call.png" alt="">
+					<img src="img/call.png" alt="">
 					<a href="tel:<?php the_field('phone1', 'option'); ?>"><?php the_field('phone1', 'option'); ?></a>
 					<a href="tel:<?php the_field('phone2', 'option'); ?>"><?php the_field('phone2', 'option'); ?></a>
 					<a href="tel:<?php the_field('phone3', 'option'); ?>"><?php the_field('phone3', 'option'); ?></a>
 				</div>
 
 				<div class="header__info_time">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/time.png" alt="">
+					<img src="img/time.png" alt="">
 					<p><?php the_field('time', 'option'); ?></p>
 				</div>
 
 				<a href="#" class="header__info_login">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/login.png" alt="">
+					<img src="img/login.png" alt="">
 				</a>
 
 				<?php cart_link(); ?><?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
@@ -86,6 +88,7 @@
 				<span class="navigation__hamburger_item"></span>
 			</span>
 		</button>
+
 
 		<?php 
 			wp_nav_menu( array(

@@ -24,7 +24,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<li class="shop__item" <?php wc_product_class( '', $product ); ?>>
+<li class="popular__list" <?php wc_product_class( '', $product ); ?>>
 
 	<?php
 

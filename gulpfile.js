@@ -19,47 +19,47 @@ var gulp          = require('gulp'),
 
 gulp.task('browser-sync', function() {
 	browsersync({
-		proxy: "http://localhost:81/fruits/",
+		proxy: "http://localhost:81/dragon/",
 		notify: false
 	})
 });
 
 gulp.task('styles', function() {
-	return gulp.src('fruits/assets/'+syntax+'/**/*.'+syntax+'')
+	return gulp.src('dragon/assets/'+syntax+'/**/*.'+syntax+'')
 	.pipe(sass({ outputStyle: 'expand' }).on("error", notify.onError()))
 	.pipe(rename({ suffix: '.min', prefix : '' }))
 	.pipe(autoprefixer(['last 15 versions']))
 	.pipe(cleancss( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
-	.pipe(gulp.dest('fruits/assets/css'))
+	.pipe(gulp.dest('dragon/assets/css'))
 	.pipe(browsersync.reload( {stream: true} ))
 });
 
 gulp.task('js', function() {
 	return gulp.src([
-		'fruits/assets/libs/jquery/dist/jquery.min.js',  			//----jquery
-		// 'fruits/assets/libs/jquery.validate.js', 					//----форма
-		// 'fruits/assets/libs/jquery.mask.min.js', 					//----форма
-		// 'fruits/assets/libs/jquery.popupoverlay.js', 				//----модалки
-		// 'fruits/assets/libs/flipster/jquery.flipster.min.js', 					//----слайдер
-		// 'fruits/assets/libs/slick/slick.js', 					//----слайдер
-		'fruits/assets/libs/swiper/swiper.min.js', 			//----слайдер
-		// 'fruits/assets/libs/fancybox/jquery.fancybox.js', 		//----картінка прикліку
-		// 'fruits/assets/libs/jquery.spincrement.min.js', 		//----цифри анімованні
-		// 'fruits/assets/libs/isotope.pkgd.min.js', 				//----сетка елементов + фильтр
-		// 'fruits/assets/libs/lazy-line-painter/lazy-line-painter-1.9.6.min.js', 				
-		'fruits/assets/js/common.js', // Always at the end
+		'dragon/assets/libs/jquery/dist/jquery.min.js',  			//----jquery
+		// 'dragon/assets/libs/jquery.validate.js', 					//----форма
+		// 'dragon/assets/libs/jquery.mask.min.js', 					//----форма
+		// 'dragon/assets/libs/jquery.popupoverlay.js', 				//----модалки
+		// 'dragon/assets/libs/flipster/jquery.flipster.min.js', 					//----слайдер
+		// 'dragon/assets/libs/slick/slick.js', 					//----слайдер
+		'dragon/assets/libs/swiper/swiper.min.js', 			//----слайдер
+		// 'dragon/assets/libs/fancybox/jquery.fancybox.js', 		//----картінка прикліку
+		// 'dragon/assets/libs/jquery.spincrement.min.js', 		//----цифри анімованні
+		// 'dragon/assets/libs/isotope.pkgd.min.js', 				//----сетка елементов + фильтр
+		// 'dragon/assets/libs/lazy-line-painter/lazy-line-painter-1.9.6.min.js', 				
+		'dragon/assets/js/common.js', // Always at the end
 	])
 	.pipe(plumber())
 	.pipe(concat('scripts.min.js'))
 	.pipe(uglify()) // Mifify js (opt.)
-	.pipe(gulp.dest('fruits/assets/js'))
+	.pipe(gulp.dest('dragon/assets/js'))
 	.pipe(browsersync.reload({ stream: true }))
 });
 
 gulp.task('rsync', function() {
-	return gulp.src('fruits/assets/**')
+	return gulp.src('dragon/assets/**')
 	.pipe(rsync({
-		root: 'fruits/assets/',
+		root: 'dragon/assets/',
 		hostname: 'username@yousite.com',
 		destination: 'yousite/public_html/',
 		// include: ['*.htaccess'], // Includes files to deploy
@@ -73,15 +73,15 @@ gulp.task('rsync', function() {
 
 
 gulp.task('watch', ['styles', 'js', 'browser-sync'], function() {
-	gulp.watch('fruits/assets/'+syntax+'/**/*.'+syntax+'', ['styles']);
-	gulp.watch(['libs/**/*.js', 'fruits/assets/js/common.js'], ['js']);
-	gulp.watch('fruits/assets/*.html', browsersync.reload);
-	gulp.watch('fruits/**/*.php', browsersync.reload);
+	gulp.watch('dragon/assets/'+syntax+'/**/*.'+syntax+'', ['styles']);
+	gulp.watch(['libs/**/*.js', 'dragon/assets/js/common.js'], ['js']);
+	gulp.watch('dragon/assets/*.html', browsersync.reload);
+	gulp.watch('dragon/**/*.php', browsersync.reload);
 });
 
 //--------------------------------svg-sprite-----------------------------
 gulp.task('symbols', function() {
-  return gulp.src('fruits/img/icon/*.svg')
+  return gulp.src('dragon/img/icon/*.svg')
     .pipe(svgmin())
     .pipe(svgstore({
       inlineSvg: true
@@ -98,7 +98,7 @@ gulp.task('symbols', function() {
       }
     }))
     .pipe(rename('symbols.html'))
-    .pipe(gulp.dest('fruits/img'));
+    .pipe(gulp.dest('dragon/img'));
 });
 
 gulp.task('default', ['watch']);

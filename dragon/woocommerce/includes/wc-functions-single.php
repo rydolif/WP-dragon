@@ -12,10 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 		<main class="main">
 
-			<div class="container">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header-bg.png" alt="" class="main__bg">
-			</div>
-
 			<section class="shop" id="app">
 				<div class="container">
 	<?php
@@ -29,10 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				</div>
 			</section>
-
-			<div class="container">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/img/footer-bg.png" alt="" class="main__bg">
-			</div>
 
 		</main>
 	<?php

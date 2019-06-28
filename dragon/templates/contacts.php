@@ -6,55 +6,52 @@
 get_header();
 ?>
 	
-	<main class="main">
+
+	<main class="main main--bg">
 
 		<section class="contacts">
-			<div class="container">
-				
-				<h2>Контакты</h2>
-				<div class="contacts__info header__info">
-					<a href="mailto:<?php the_field('mail', 'option'); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/mail.png" alt="">
-						<span><?php the_field('mail', 'option'); ?></span>
-					</a>
-					<a href="tel:<?php the_field('phone', 'option'); ?>">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/phone.png" alt="">
-						<span><?php the_field('phone', 'option'); ?></span>
-					</a>
-				</div>
+			<div class="container--tovar container">
 
-				<h2>Мы в соцсетях:</h2>
-				<div class="contacts__soc header__soc">
-					<a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/fb.png" alt="">
-					</a>
-					<a href="<?php the_field('instagram', 'option'); ?>" target="_blank">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/in.png" alt="">
-					</a>
-					<a href="<?php the_field('vkontakte', 'option'); ?>" target="_blank">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/vk.png" alt="">
-					</a>
-				</div>
+				<div class="contacts__block">
 
-				<h2>Часы работы:</h2>
-				<div class="contacts__time">
-					<?php the_field('time', 'option'); ?>
-				</div>
+					<div class="contacts__block--white">
+						<h2>Контакты</h2>
+						<div class="contacts__block_info">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts--place.png" alt="">
+							<p><?php the_field('place', 'option'); ?></p>
+						</div>
+						<div class="contacts__block_info">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts--time.png" alt="">
+							<p><?php the_field('time', 'option'); ?></p>
+						</div>
+						<div class="contacts__block_info">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts--tel.png" alt="">
+							<a href="tel:<?php the_field('phone1', 'option'); ?>"><?php the_field('phone1', 'option'); ?></a>
+							<a href="tel:<?php the_field('phone2', 'option'); ?>"><?php the_field('phone2', 'option'); ?></a>
+							<a href="tel:<?php the_field('phone3', 'option'); ?>"><?php the_field('phone3', 'option'); ?></a>
+						</div>
+						<div class="contacts__block_info">
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts--mail.png" alt="">
+							<a href="mailto:<?php the_field('mail', 'option'); ?>"><?php the_field('mail', 'option'); ?></a>
+						</div>
+						<div class="contacts__block_soc">
+							<p>Мы в соцсетях:</p>
+							<a href="<?php the_field('fb', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts--fb.png" alt=""></a>
+							<a href="<?php the_field('in', 'option'); ?>" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/contacts--in.png" alt=""></a>
+						</div>
+					</div>
 
-				<h2>Отзывы о качестве сервиса, вопросы и предложения:</h2>
-				<div class="contacts__time">
-					<p>Tel: <a href="tel:<?php the_field('question-phone', 'option'); ?>"><?php the_field('question-phone', 'option'); ?></a></p>
-					<p>Email: <a href="mailto:<?php the_field('question-mail', 'option'); ?>"><?php the_field('question-mail', 'option'); ?></a></p>
-				</div>
+					<div class="contacts__block--red">
+						<h2>Напишите нам</h2>
+						<?php the_content(); ?>
+					</div>
 
-				<h2>Корпоративным клиентам:</h2>
-				<?php the_field('corporate', 'option'); ?>
+				</div>
 
 			</div>
 		</section>
 
 	</main>
-
 
 <?php
 get_footer();

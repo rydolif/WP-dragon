@@ -543,6 +543,10 @@
 		margin-bottom: 35px
 		font-family: $title-fonts
 
+	ul
+		img
+			display: none !important
+
 	&__container
 		display: flex
 		justify-content: space-between
@@ -834,7 +838,10 @@
 			width: 100%
 			
 
-
+//----------------------------------wordpress-------------------
+.menu-item img._before,
+.rtl .menu-item img._after
+	margin-left: 0
 
 @import "page"
 @import "media" // Always at the end

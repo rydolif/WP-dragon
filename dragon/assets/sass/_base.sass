@@ -75,13 +75,11 @@ input, textarea
 	height: 50px
 	border: 1px solid #ebebeb
 	background-color: transparent
-	margin-bottom: 20px
 	padding: 0 25px
 	color: #fff
 	font-size: 20px
 	font-weight: 300
 	font-family: $title-fonts
-
 
 	&:focus:required:invalid
 		border-color: red
@@ -135,6 +133,11 @@ textarea
 
 	&::placeholder
 		line-height: 1.4
+
+label
+	margin-bottom: 20px
+	span
+		color: #fff !important
 
 b, strong
 	font-weight: 700
