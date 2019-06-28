@@ -610,6 +610,10 @@
 
 .blog
 	background: #fff
+	padding-bottom: 40px
+
+	h2
+		margin-bottom: 40px
 
 	h3
 		margin-bottom: 30px
@@ -852,7 +856,6 @@
 
 	h2
 		font-size: 24px
-		margin-bottom: 30px
 
 	h3, h4, h5
 		font-size: 20px
@@ -866,7 +869,107 @@
 		box-shadow: 0 0 13px rgba(0, 0, 0, 0.13)
 		border-radius: 22px
 		padding: 30px 50px 50px
+		background: #fff
 
+
+
+.pagination
+	display: flex
+	justify-content: center
+	text-align: center
+
+	.prev
+		&::before
+			content: '←'
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+	.next
+		&::before
+			content: '→'
+			position: absolute
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+
+	a, span
+		position: relative
+		display: block
+		border-radius: 15px
+		border: 2px solid $accent
+		height: 45px
+		width: 45px
+		line-height: 45px
+		font-size: 22px
+		margin: 0 3px
+
+	span
+		background-color: $accent
+		color: #fff
+
+	a
+		transition: all .3s
+		color: $accent
+
+		&:hover,
+		&:focus
+			background-color: $accent
+			color: #fff
+
+
+.article
+	overflow: visible
+	padding-bottom: 60px
+
+	h1, h2, h3, h4, h5, h6
+		margin-bottom: 15px
+		font-family: $title-fonts
+		font-weight: 400
+
+
+	ul, p, ol
+		margin-bottom: 25px
+		font-size: 18px
+
+	ul
+		list-style-type: disc
+		padding-left: 30px
+
+	ol
+		list-style-type: upper-roman
+		padding-left: 30px
+
+	img
+		float: left
+		max-width: 400px
+		height: auto
+		border-radius: 22px
+		margin-right: 20px
+		margin-bottom: 20px
+
+	a
+		color: $accent
+
+		&:hover,
+		&:focus
+			text-decoration: underline
+
+	&__header
+		display: flex
+		flex-wrap: wrap
+		justify-content: space-between
+		align-items: center
+		margin-bottom: 30px
+
+		time
+			font-size: 18px
+			color: #363636
+
+
+.breadcrumbs
+	font-size: 18px
+	margin-bottom: 25px
 
 
 //----------------------------------wordpress-------------------

@@ -167,6 +167,11 @@ require get_template_directory() . '/includes/cart.php';
 
 
 /**
- * Акции 
+ * post 
  */
 require get_template_directory() . '/includes/post-type.php';
+
+/**
+ * Хлебные крошки 
+ */
+require get_template_directory() . '/includes/crumbs.php';

@@ -2,21 +2,22 @@
 get_header();
 ?>
 
-	<main class="main">
 
-		<section class="stock">
+	<main class="main main--bg">
+
+		<section class="blog">
 			<div class="container">
-				
+
 				<h2>Акции</h2>
 
-				<div class="stock__list">
-
+				<div class="popular__list">
+					
 			        <?php
 			            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 			            $args = array(
 			                'post_type'=>'new', // Your post type name
-			                'posts_per_page' => 3,
+			                'posts_per_page' => 8,
 			                'paged' => $paged,
 			            );
 
@@ -26,26 +27,25 @@ get_header();
 
 			        ?>
 
-						<div class="stock__item">
-							<div class="stock__item_img">
-								<?php if ( has_post_thumbnail() ) {
-									the_post_thumbnail();
-								} else { ?>
-									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/no.png" alt="<?php the_title(); ?>" />
-								<?php } ?>
-							</div>
-							<div class="stock__item_content">
-								<h3>“<?php the_title(); ?>”</h3>
-								<p><?php the_excerpt(); ?></p>
-								<div class="stock__item_info">
-									<time datetime="1969-07-16">
-										<?php echo get_the_date('Y-m-d'); ?>
-									</time>
-									<a href="<?php the_permalink(); ?>">Подробнее</a>
-								</div>
+					<div class="blog__item popular__item">
+
+						<?php if ( has_post_thumbnail() ) {
+							the_post_thumbnail();
+						} else { ?>
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/no.png" alt="<?php the_title(); ?>" />
+						<?php } ?>
+
+						<div class="blog__item_content">
+							<h3>“<?php the_title(); ?>”</h3>
+								<?php the_excerpt(); ?>
+							<div class="blog__item_footer">
+								<time datetime="1969-07-16">
+									<?php echo get_the_date('Y-m-d'); ?>
+								</time>
+								<a href="<?php the_permalink(); ?>">Подробнее</a>
 							</div>
 						</div>
-
+					</div>
 
 				 	<?php
 			            endwhile;
@@ -79,7 +79,6 @@ get_header();
 		</section>
 
 	</main>
-
 
 
 <?php get_footer(); ?>
