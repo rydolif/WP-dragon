@@ -1,7 +1,6 @@
-
-
-
-<?php get_header(); ?>
+<?php
+get_header();
+?>
 
 	<main class="main">
 
@@ -16,8 +15,8 @@
 			            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 			            $args = array(
-			                'post_type'=>'action', // Your post type name
-			                'posts_per_page' => 4,
+			                'post_type'=>'blog', // Your post type name
+			                'posts_per_page' => 3,
 			                'paged' => $paged,
 			            );
 
@@ -32,12 +31,12 @@
 								<?php if ( has_post_thumbnail() ) {
 									the_post_thumbnail();
 								} else { ?>
-									<img src="<?php echo get_template_directory_uri(); ?>/img/no.jpg" alt="<?php the_title(); ?>" />
+									<img src="<?php echo get_template_directory_uri(); ?>/assets/img/no.png" alt="<?php the_title(); ?>" />
 								<?php } ?>
 							</div>
 							<div class="stock__item_content">
-								<h3>“ <?php the_title(); ?>”</h3>
-								<?php the_content(); ?>
+								<h3>“<?php the_title(); ?>”</h3>
+								<p><?php the_excerpt(); ?></p>
 								<div class="stock__item_info">
 									<time datetime="1969-07-16">
 										<?php echo get_the_date('Y-m-d'); ?>
@@ -53,32 +52,34 @@
 			        ?>
 
 			    </div>
+			    
+			 	<div class="pagination">
+				    <?php
+
+				    $total_pages = $loop->max_num_pages;
+
+				    if ($total_pages > 1){
+				        $current_page = max(1, get_query_var('paged'));
+
+				        echo paginate_links(array(
+				            'base' => get_pagenum_link(1) . '%_%',
+				            'format' => '/page/%#%',
+				            'current' => $current_page,
+				            'total' => $total_pages,
+				            'prev_text'    => __(' '),
+				            'next_text'    => __(' '),
+				        ));
+				    }    
+				    }
+				    wp_reset_postdata();
+				    ?> 
+				</div>
 
 			</div>
 		</section>
 
 	</main>
 
-	<div class="pagination">
-	    <?php
 
-	    $total_pages = $loop->max_num_pages;
-
-	    if ($total_pages > 1){
-	        $current_page = max(1, get_query_var('paged'));
-
-	        echo paginate_links(array(
-	            'base' => get_pagenum_link(1) . '%_%',
-	            'format' => '/page/%#%',
-	            'current' => $current_page,
-	            'total' => $total_pages,
-	            'prev_text'    => __(' '),
-	            'next_text'    => __(' '),
-	        ));
-	    }    
-	    }
-	    wp_reset_postdata();
-	    ?> 
-	</div> 
 
 <?php get_footer(); ?>

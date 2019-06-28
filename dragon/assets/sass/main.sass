@@ -626,6 +626,7 @@
 		padding: 0
 		border: none
 		justify-content: flex-start
+		overflow: hidden
 
 		&:hover,
 		&:focus
@@ -745,6 +746,7 @@
 		font-size: 24px
 		margin-bottom: 50px
 
+
 	&__block
 		box-shadow: 0 0 13px rgba(0, 0, 0, 0.13)
 		border-radius: 22px
@@ -836,7 +838,36 @@
 			display: flex
 			justify-content: flex-end
 			width: 100%
-			
+
+
+.info--page
+	padding-bottom: 60px
+	text-align: center
+	overflow: visible
+
+	h2, h3, h4, h5
+		font-family: $title-fonts
+		font-weight: 400
+		color: #363636
+
+	h2
+		font-size: 24px
+		margin-bottom: 30px
+
+	h3, h4, h5
+		font-size: 20px
+		margin-bottom: 20px
+	
+	p, ul
+		margin-bottom: 20px
+		font-size: 18px
+
+	&__block
+		box-shadow: 0 0 13px rgba(0, 0, 0, 0.13)
+		border-radius: 22px
+		padding: 30px 50px 50px
+
+
 
 //----------------------------------wordpress-------------------
 .menu-item img._before,
