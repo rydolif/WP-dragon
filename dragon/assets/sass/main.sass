@@ -11,7 +11,7 @@
 		max-width: 1050px
 
 
-.crumbs
+.breadcrumbs
 	display: flex
 	flex-wrap: wrap
 	color: #606060
@@ -408,104 +408,6 @@
 		overflow: visible
 
 
-.popular
-	padding-top: 55px
-	padding-bottom: 65px
-	background-color: #ebebeb
-
-	h2
-		margin-bottom: 60px
-
-
-	&__list
-		display: flex
-		justify-content: space-around
-		flex-wrap: wrap
-
-	&__item
-		display: flex
-		flex-direction: column
-		justify-content: space-between
-		width: 24%
-		padding: 20px 15px
-		background-color: #fff
-		border-radius: 20px
-		border: 1px solid #ebebeb
-		margin-bottom: 35px
-
-		&_img
-			width: 100%
-			height: auto
-			margin-bottom: 30px
-
-		&_header
-			display: flex
-			justify-content: space-between
-			margin-bottom: 15px
-
-		&_price
-			color: #d8012d
-			font-size: 36px
-			line-height: 1.1
-			font-weight: 300
-			text-transform: uppercase
-			white-space: nowrap
-			font-family: $title-fonts
-			margin-left: 15px
-
-			span
-				font-size: 24px
-
-		&_main
-			display: flex
-			margin-bottom: 20px
-
-		&_content
-			font-size: 20px
-			color: #606060
-			line-height: 1.1
-
-		&_weight
-			color: #363636
-			font-size: 18px
-			font-weight: 300
-			font-family: $title-fonts
-
-		&_footer
-			display: flex
-			justify-content: space-around
-			align-items: center
-
-		&_button
-			display: flex
-
-			button
-				border-radius: 15px
-				width: 45px
-				height: 45px
-				color: #676767
-				background-color: #ebebeb
-				border: none
-				font-size: 36px
-				font-weight: 400
-				transition: all .3s
-				padding: 0
-
-				&:hover,
-				&:focus
-					color: #363636
-
-			input
-				width: 45px
-				height: 45px
-				border-radius: 15px
-				border: 2px solid #ebebeb
-				background-color: #ffffff
-				text-align: center
-				color: #676767
-				font-size: 18px
-				margin: 0 10px
-
 
 .content
 	padding: 80px 0
@@ -606,6 +508,134 @@
 
 	h2
 		margin-bottom: 30px
+
+
+.popular
+	padding-top: 55px
+	padding-bottom: 65px
+	background-color: #ebebeb
+
+	h2
+		margin-bottom: 60px
+
+	&__list
+		display: flex
+		justify-content: space-around
+		flex-wrap: wrap
+
+	&__item
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		width: 24%
+		padding: 20px 15px
+		background-color: #fff
+		border-radius: 20px
+		border: 1px solid #ebebeb
+		margin-bottom: 35px
+
+		a
+			color: #606060
+
+		&_img
+			margin-bottom: 30px
+
+			img
+				width: 100%
+				height: auto
+			
+
+		&_header
+			display: flex
+			justify-content: space-between
+			margin-bottom: 15px
+
+			h2
+				font-size: 32px
+				color: #363636
+				font-weight: 400
+				line-height: 1
+				font-family: $fonts
+				margin-bottom: 0
+
+			span
+				color: #d8012d
+				font-size: 36px
+				line-height: 1.1
+				font-weight: 300
+				text-transform: uppercase
+				white-space: nowrap
+				font-family: $title-fonts
+				margin-left: 15px
+
+				span
+					font-size: 24px
+
+		&_main
+			display: flex
+			margin-bottom: 20px
+
+			p
+				font-size: 20px
+				color: #606060
+				line-height: 1.1
+
+		&_weight
+			color: #363636 !important
+			font-size: 18px !important
+			font-weight: 300 !important
+			font-family: $title-fonts !important
+
+		&_footer
+
+			.cart
+				display: flex
+				justify-content: space-around
+				align-items: center
+
+			.wbu-quantity
+				display: flex
+
+			.button
+				@extend .btn
+				@extend .btn--shop
+				white-space: nowrap
+
+
+			.wbu-qty-button
+				display: block
+				text-align: center
+				border-radius: 15px
+				width: 42px
+				height: 42px
+				line-height: 46px
+				color: #676767
+				background-color: #ebebeb
+				border: none
+				font-size: 36px
+				font-weight: 400
+				transition: all .3s
+				padding: 0
+
+				&:hover,
+				&:focus
+					color: #363636
+
+			input
+				width: 42px
+				height: 42px
+				line-height: 42px
+				border-radius: 15px
+				border: 2px solid #ebebeb
+				background-color: #ffffff
+				text-align: center
+				color: #676767 !important
+				font-size: 18px
+				margin: 0 5px
+				padding: 3px
+
+				&::placeholder
+					color: #363636 !important
 
 
 .blog
@@ -967,9 +997,7 @@
 			color: #363636
 
 
-.breadcrumbs
-	font-size: 18px
-	margin-bottom: 25px
+
 
 
 //----------------------------------wordpress-------------------
