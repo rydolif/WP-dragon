@@ -25,7 +25,7 @@ $totals = $order->get_order_item_totals();
 		<thead>
 			<tr>
 				<th class="product-name"><?php esc_html_e( 'Product', 'woocommerce' ); ?></th>
-				<th class="product-quantity"><?php esc_html_e( 'Qty', 'woocommerce' ); ?></th>
+				<th class="product-quantity">Количество</th>
 				<th class="product-total"><?php esc_html_e( 'Totals', 'woocommerce' ); ?></th>
 			</tr>
 		</thead>

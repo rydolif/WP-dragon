@@ -25,5 +25,21 @@ function new_template_single_price() {
 		</p>
 		<p class="tovar__info_weight popular__item_weight"><?php the_field('weight'); ?>грм</p>
 	</div>
+
+	<div class="tovar__form popular__item_footer">
+		<div class="quantity wbu-quantity">
+		    <a href="" class="wbu-qty-button wbu-btn-sub" data-cart-key="<?php echo $cart_item_key; ?>">-</a>
+		    <?php echo 
+			    apply_filters('wbu_checkout_quantity_input', woocommerce_quantity_input(array(
+			    'input_name'  => "cart[{$cart_item_key}][qty]",
+			    'input_value' => (int) $cart_item['quantity'],
+			    'max_value'   => ( $product->backorders_allowed() ? '' : $product->get_stock_quantity() ),
+			    'min_value'   => '1'
+				), $product, false ));
+			?>
+		    <a href="" class="wbu-qty-button wbu-btn-inc" data-cart-key="<?php echo $cart_item_key; ?>">+</a>
+		</div>
+		
 <?php
 }
+
