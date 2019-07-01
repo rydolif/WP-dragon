@@ -69,15 +69,15 @@ function schoolstudy_woocommerce_active_body_class( $classes ) {
 }
 add_filter( 'body_class', 'schoolstudy_woocommerce_active_body_class' );
 
-/**
- * Products per page.
- *
- * @return integer number of products.
- */
-function schoolstudy_woocommerce_products_per_page() {
-	return 24;
-}
-add_filter( 'loop_shop_per_page', 'schoolstudy_woocommerce_products_per_page' );
+// /**
+//  * Products per page.
+//  *
+//  * @return integer number of products.
+//  */
+// function schoolstudy_woocommerce_products_per_page() {
+// 	return 24;
+// }
+// add_filter( 'loop_shop_per_page', 'schoolstudy_woocommerce_products_per_page' );
 
 /**
  * Product gallery thumnbail columns.
@@ -158,8 +158,7 @@ if ( ! function_exists( 'schoolstudy_woocommerce_wrapper_before' ) ) {
 	 */
 	function schoolstudy_woocommerce_wrapper_before() {
 		?>
-		<div id="primary" class="content-area">
-			<main id="main" class="site-main" role="main">
+
 			<?php
 	}
 }
@@ -175,8 +174,7 @@ if ( ! function_exists( 'schoolstudy_woocommerce_wrapper_after' ) ) {
 	 */
 	function schoolstudy_woocommerce_wrapper_after() {
 			?>
-			</main><!-- #main -->
-		</div><!-- #primary -->
+
 		<?php
 	}
 }

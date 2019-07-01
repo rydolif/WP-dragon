@@ -15,6 +15,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 			<section class="shop" id="app">
 				<div class="container">
+
+					<h2>Меню</h2>
+
+			<?php 
+					/**
+				 * Hook: woocommerce_sidebar.
+				 *
+				 * @hooked woocommerce_get_sidebar - 10
+				 */
+				do_action( 'woocommerce_sidebar' );
+			?>
+
 	<?php
 	}
 
@@ -52,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	function school_before_shop_loop_item() {
 		?>
 			<div class="popular__item_main">
-				<?php the_content(); ?>
+				<?php the_excerpt(); ?>
 				<p class="popular__item_weight"><?php the_field('weight'); ?>грм.</p>
 			</div>
 			

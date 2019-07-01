@@ -408,7 +408,6 @@
 		overflow: visible
 
 
-
 .content
 	padding: 80px 0
 
@@ -507,7 +506,12 @@
 		margin-bottom: 50px
 
 	h2
-		margin-bottom: 30px
+		margin-bottom: 0
+
+	&__list
+		display: flex
+		justify-content: space-around
+		flex-wrap: wrap
 
 
 .popular
@@ -585,6 +589,22 @@
 			font-size: 18px !important
 			font-weight: 300 !important
 			font-family: $title-fonts !important
+
+		&_price
+			color: #d8012d
+			
+			line-height: 1.1
+			font-weight: 300
+			text-transform: uppercase
+			white-space: nowrap
+			font-family: $title-fonts
+
+			span
+				font-size: 36px
+
+				span
+					margin-left: 5px
+					font-size: 24px
 
 		&_footer
 
@@ -710,6 +730,7 @@
 		color: #363636
 		font-size: 36px
 		margin-right: 35px
+		font-weight: 400
 
 	h2
 		margin-bottom: 45px
@@ -721,6 +742,9 @@
 		border-radius: 22px
 		background-color: #fff
 		padding: 45px
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
 
 		&_img
 			width: 360px
@@ -732,10 +756,18 @@
 			justify-content: space-between
 			margin-bottom: 60px
 
+			p
+				font-family: $text-fonts
+				color: #606060
+				font-size: 20px
+				line-height: 1.1
+
+
 		&_block
 			display: flex
 			justify-content: space-between
 			flex-wrap: wrap
+			width: 54%
 
 	&__form
 		display: flex
@@ -767,10 +799,12 @@
 		margin-bottom: 25px
 
 	&__description
-		font-family: $text-fonts
-		color: #606060
-		font-size: 20px
-		line-height: 1.1
+		margin-bottom: 20px
+		p
+			font-family: $text-fonts
+			color: #606060
+			font-size: 20px
+			line-height: 1.1
 
 
 .contacts
@@ -902,7 +936,6 @@
 		background: #fff
 
 
-
 .pagination
 	display: flex
 	justify-content: center
@@ -998,12 +1031,95 @@
 
 
 
-
-
 //----------------------------------wordpress-------------------
 .menu-item img._before,
 .rtl .menu-item img._after
 	margin-left: 0
+
+
+.yith-wcan-list
+	padding: 25px 0
+	display: flex
+	flex-wrap: wrap
+
+	a
+		@extend .btn
+		margin-bottom: 10px
+		margin-right: 15px
+		color: $accent
+		border-color: $accent
+
+		&:hover,
+		&:focus
+			color: #fff
+			background: rgba($accent, .7)
+
+		&::before
+			display: none
+
+	.chosen
+		a
+			color: #fff !important
+			background: $accent !important
+
+.minus,
+.plus
+	display: none
+
+.woocommerce-product-gallery__trigger
+	display: none
+
+
+
+.type-product
+	display: flex
+	flex-wrap: wrap
+
+
+.woocommerce-product-gallery--with-images
+	width: 360px
+	height: 360px
+	margin-right: 70px
+
+	img
+		width: 100%
+		height: auto
+
+
+.entry-summary
+	width: 53%
+
+
+
+.cart
+	display: flex
+	justify-content: flex-end
+	align-items: center
+	width: 100%
+
+	button
+		@extend .btn
+		@extend .btn--shop
+
+	.quantity
+		input
+			width: 42px
+			height: 42px
+			line-height: 42px
+			border-radius: 15px
+			border: 2px solid #ebebeb
+			background-color: #ffffff
+			text-align: center
+			color: #676767 !important
+			font-size: 18px
+			margin: 0 5px
+			padding: 3px
+
+			&::placeholder
+				color: #363636 !important
+
+
+
 
 @import "page"
 @import "media" // Always at the end

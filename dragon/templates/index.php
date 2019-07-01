@@ -21,16 +21,21 @@ get_header('page');
 
 			<div class="category__list">
 
-				<a href="#" class="category__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/week.png" alt="">
-				</a>
-				<a href="#" class="category__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/rice.png" alt="">
-				</a>
-				<a href="#" class="category__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/new.png" alt="">
-				</a>
+					<?php if( have_rows('list') ): ?>
 
+						<?php while( have_rows('list') ): the_row(); 
+							$img = get_sub_field('img');
+							$link = get_sub_field('link');
+						?>
+
+							<a href="<?php echo $link; ?>" class="category__item">
+								<img src="<?php echo $img; ?>" alt="">
+							</a>
+
+						<?php endwhile; ?>
+
+					<?php endif; ?>
+					
 			</div>
 
 		</div>
@@ -47,39 +52,38 @@ get_header('page');
 
 			<div class="menu__slider swiper-container">
 				<div class="swiper-wrapper">
-					<div class="menu__slide swiper-slide">
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/menu3.png" alt="">
-							<span>Суши</span>
-						</a>
-					</div>
-					<div class="menu__slide swiper-slide">
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/menu2.png" alt="">
-							<span>Дессерты</span>
-						</a>
-					</div>
-					<div class="menu__slide swiper-slide">
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/menu3.png" alt="">
-							<span>Роллы</span>
-						</a>
-					</div>
-					<div class="menu__slide swiper-slide">
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/menu2.png" alt="">
-							<span>Cеты</span>
-						</a>
-					</div>
-					<div class="menu__slide swiper-slide">
-						<a href="#">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/menu3.png" alt="">
-							<span>Дессерты</span>
-						</a>
-					</div>
+
+					<?php  
+
+						$prod_cat_args = array(
+						    'taxonomy'    => 'product_cat',
+						    'orderby'     => 'id', // здесь по какому полю сортировать
+						    'hide_empty'  => true, // скрывать категории без товаров или нет
+						    'parent'      => 0 // id родительской категории
+						  );
+
+						$woo_categories = get_categories( $prod_cat_args );
+						  foreach ( $woo_categories as $woo_cat ) {
+						      $woo_cat_id = $woo_cat->term_id; //category ID
+						      $woo_cat_name = $woo_cat->name; //category name
+						      $woo_cat_slug = $woo_cat->slug; //category slug
+						      echo '<div class="menu__slide swiper-slide">';
+						      echo '<a href="' . get_term_link( $woo_cat_id, 'product_cat' ) . '">';
+						      $category_thumbnail_id = get_woocommerce_term_meta($woo_cat_id, 'thumbnail_id', true);
+						      $thumbnail_image_url = wp_get_attachment_url($category_thumbnail_id);
+						      echo '<img src="' . $thumbnail_image_url . '"/>';
+						      ?>
+						    	<?php echo "<span> $woo_cat_name </span>" ?>
+						      <?php  
+						       echo '</a>';
+						      echo "</div>\n";
+						  }
+
+					  ?>
+
 				</div>
 			</div>
-
+			
 		</div>
 	</section>
 
@@ -88,169 +92,7 @@ get_header('page');
 
 			<h2>Популярное</h2>
 
-			<div class="popular__list">
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular1.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular2.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular3.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular4.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular5.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular6.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular7.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-				<div class="popular__item">
-					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/popular8.jpg" alt="" class="popular__item_img">
-					<div class="popular__item_header">
-						<h3>Калифорния с лососем</h3>
-						<p class="popular__item_price">135 <span>грн.</span></p>
-					</div>
-					<div class="popular__item_main">
-						<p class="popular__item_content">Рис, угорь, авокадо, сыр филадельфия, икра, кунжут, огурец</p>
-						<p class="popular__item_weight">250грм</p>
-					</div>
-					<div class="popular__item_footer">
-						<div class="popular__item_button">
-							<button>-</button>
-							<input type="number" min="1" value="1">
-							<button>+</button>
-						</div>
-						<a href="#" class="btn btn--shop">Заказать</a>
-					</div>
-				</div>
-
-			</div>
+			<?php echo do_shortcode( '[featured_products per_page="8" columns="4"]' ); ?>
 
 		</div>
 	</section>
@@ -258,18 +100,7 @@ get_header('page');
 	<section class="content" id="content">
 		<div class="container">
 
-			<h3>Доставка по Софиевской и Петропавловской Борщаговке, а также в город Вишнёвое</h3>
-			<p>
-				Прием заказов осуществляется с 11:00 до 23:00 часов, в этом случае доставка и самовывоз возможны до 0:00 часов. Также Вы можете разместить предзаказ на любое удобное для Вас время. Ориентировочное время доставки - 1-1,5 часа.
-				<br> Бесплатная доставка действует для заказов на сумму от 200 грн. Стоимость доставки заказов на сумму до 200 грн составляет 30 грн.
-				<br> Также Вы можете самостоятельно забрать свой заказ (самовывоз). В таком случае предоставляется скидка 10% независимо от суммы.
-			</p>
-
-			<h3>Доставка по Киеву</h3>
-			<p>
-				Прием заказов осуществляется с 11:00 до 23:00 часов, в этом случае доставка и самовывоз возможен до 0:00 часов. Также Вы можете разместить предзаказ на любое удобное для Вас время. Ориентировочное время доставки по Киеву - до 2 часов.
-				<br> Бесплатная доставка действует для заказов на сумму от 250 грн. Стоимость доставки заказов на сумму до 200 грн составляет 50 грн.
-			</p>
+			<?php the_content(); ?>
 
 		</div>
 	</section>

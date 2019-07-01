@@ -28,6 +28,14 @@ get_header( 'shop' );
  */
 do_action( 'woocommerce_before_main_content' );
 
+/**
+ * Hook: woocommerce_sidebar.
+ *
+ * @hooked woocommerce_get_sidebar - 10
+ */
+do_action( 'woocommerce_sidebar' );
+
+
 ?>
 <?php
 if ( woocommerce_product_loop() ) {

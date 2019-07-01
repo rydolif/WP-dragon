@@ -59,7 +59,16 @@ if ( post_password_required() ) {
 		 */
 		do_action( 'woocommerce_single_product_summary' );
 		?>
+
 	</div>
+
+
+	<h2>Описание</h2>
+
+	<div class="tovar__description">
+		<?php the_content(); ?>
+	</div>
+
 
 	<?php
 	/**
