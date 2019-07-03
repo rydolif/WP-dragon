@@ -1,5 +1,12 @@
 $(function() {
-
+//-------------------------------активна ссилка на якій знаходишся для меню---------------------------------------
+  $('#menu-nav li a').each(function () {
+      var location = window.location.href;
+      var link = this.href; 
+      if(location == link) {
+          $(this).addClass('active');
+      }
+  });
 
 //------------------------------slider menu-----------------------------
   var swiper = new Swiper('.menu__slider', {
@@ -57,7 +64,5 @@ $(function() {
           top = $(id).offset().top;
       $('body,html').animate({scrollTop: top - 60}, 'slow', 'swing');
   });
-
-
   
 });

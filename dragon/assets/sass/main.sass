@@ -22,7 +22,9 @@
 
 	a, span
 		color: #606060
-		margin: 0 5px
+
+	span
+		margin: 0 2px
 
 
 .link
@@ -117,7 +119,48 @@
 			margin-right: 145px
 
 		&_login
+			position: relative
 			margin-right: 20px
+			z-index: 1
+			cursor: pointer
+
+			&:hover,
+			&:focus
+				ul
+					display: block
+					top: 20px
+					opacity: 1
+
+			ul
+				opacity: 0
+				position: absolute
+				background: #fff
+				border-radius: 5px
+				top: -100px
+				right: 0
+				padding: 15px
+				transition: all .6s
+
+			li
+				margin-bottom: 5px
+
+				&:last-child
+					margin-bottom: 0
+
+			a
+				@extend .link
+				color: $accent
+				font-size: 16px
+				white-space: nowrap
+
+				&::before
+					background-color: $accent
+
+				&:hover,
+				&:focus
+					color: $accent
+
+
 
 		&_cart
 			position: relative
@@ -154,6 +197,12 @@
 	&__info
 		display: none
 
+	.active
+		color: #fff !important
+		text-decoration: none !important
+		&::before
+			transform: scale(1) !important
+
 
 .navigation
 	position: fixed
@@ -172,7 +221,7 @@
 		background-color: #fff
 		border-radius: 50%
 		width: 20px
-		height: 19px
+		height: 20px
 		padding: 0
 		border: none
 		transition: all .3s
@@ -187,12 +236,15 @@
 			display: inline-block
 			width: 14px
 			perspective: 80px
+			width: 20px
+			height: 20px
 
 		&_item
 			position: absolute
-			right: 0
-			top: 0
-			width: 13px
+			left: 50%
+			top: 50%
+			transform: translate(-50%, -50%)
+			width: 14px
 			height: 2px
 			background-color: #000
 			border-radius: 4px
@@ -203,8 +255,9 @@
 				content: ""
 				display: block
 				position: absolute
-				right: 0
-				top: -4px
+				left: 50%
+				transform: translate(-50%, -50%)
+				top: -2px
 				background-color: #000
 				width: 13px
 				height: 2px
@@ -214,8 +267,9 @@
 				content: ""
 				display: block
 				position: absolute
-				right: 0
-				top: -8px
+				left: 50%
+				transform: translate(-50%, -50%)
+				bottom: -4px
 				background-color: #000
 				width: 13px
 				height: 2px
@@ -229,14 +283,14 @@
 				background-color: transparent
 				transform: rotateY(180deg)
 				&::before
-					transform: translate3d(0, 0px, 0) rotate(45deg)
+					transform: translate(0, -100%) translate3d(0, 3px, 0) rotate(45deg)
 				&::after
-					transform: translate3d(0, 4px, 0) rotate(-45deg)
+					transform: translate(0, -100%) translate3d(0, -3px, 0) rotate(-45deg)
 
 	ul
 		display: flex
 		flex-direction: column
-		padding: 15px
+		padding: 10px
 
 	li
 		margin-bottom: 20px
@@ -533,7 +587,7 @@
 		flex-direction: column
 		justify-content: space-between
 		width: 24%
-		padding: 20px 15px
+		padding: 20px 15px 25px
 		background-color: #fff
 		border-radius: 20px
 		border: 1px solid #ebebeb
@@ -571,10 +625,13 @@
 				text-transform: uppercase
 				white-space: nowrap
 				font-family: $title-fonts
-				margin-left: 15px
+				margin-left: 10px
 
 				span
-					font-size: 24px
+					font-size: 36px
+					span
+						font-size: 24px
+						margin-left: 0
 
 		&_main
 			display: flex
@@ -932,6 +989,14 @@
 		margin-bottom: 20px
 		font-size: 18px
 
+	a
+		color: $accent
+
+		&:hover,
+		&:focus
+			text-decoration: underline
+			color: $accent
+
 	&__block
 		box-shadow: 0 0 13px rgba(0, 0, 0, 0.13)
 		border-radius: 22px
@@ -959,8 +1024,11 @@
 		padding: 30px 50px 50px
 		background: #fff
 
+		&--cabinet
+			padding: 0
+
+
 	table
-		display: block
 		text-align: center
 		font-size: 18px
 
@@ -981,6 +1049,7 @@
 		display: flex
 		justify-content: space-between
 		flex-wrap: wrap
+		align-items: center
 		text-align: left
 		margin-bottom: 20px
 
@@ -991,6 +1060,7 @@
 
 		input
 			width: 72%
+			color: #363636
 
 	.checkout-button
 		@extend .btn
@@ -1100,8 +1170,39 @@
 			color: #363636
 
 
+.cabinet__nav
+	ul
+		display: flex
+		justify-content: space-between
+		align-items: center
+		width: 100%
+		border-radius: 25px
+		background-color: #f5f5f5
+
+	a
+		@extend .btn
+		@extend .btn--nav
+
+	li
+		&:last-child
+			a
+				margin-right: 0
+
+
+
+
 
 //----------------------------------wordpress-------------------
+
+
+.woocommerce-cart-form
+	.cart
+		display: table
+
+
+.woocommerce-mini-cart__empty-message
+	display: none
+
 .menu-item img._before,
 .rtl .menu-item img._after
 	margin-left: 0
@@ -1148,12 +1249,11 @@
 
 .woocommerce-product-gallery--with-images
 	width: 360px
-	height: 360px
 	margin-right: 70px
 
 	img
-		width: 100%
-		height: auto
+		width: 100% !important
+		height: auto !important
 
 
 .entry-summary
@@ -1292,7 +1392,8 @@ address
 .added_to_cart
 	position: absolute
 	bottom: 0
-	color: $accent
+	color: $accent !important
+	font-size: 16px
 
 	&:hover, 
 	&:focus
@@ -1301,8 +1402,107 @@ address
 
 
 
-.tovar .qty
+.tovar .cart .qty
 	display: none
+
+.woocommerce-MyAccount-navigation-link--dashboard
+	display: none !important
+
+.woocommerce-Price-amount
+	span
+		display: inline-block
+
+.woocommerce-MyAccount-content
+	padding: 30px 50px 50px
+	text-align: center
+
+	a
+		color: $accent
+
+		&:hover, 
+		&:focus
+			color: $accent
+			text-decoration: underline
+
+	input
+		color: #363636
+		&::placeholder
+			color: #363636
+
+.woocommerce-address-fields,
+.cabinet__form,
+.woocommerce-form-login,
+.woocommerce-ResetPassword,
+.woocommerce-form-register
+	max-width: 500px
+	margin: 0 auto
+
+	input
+		color: #363636
+
+.woocommerce-ResetPassword
+	padding: 30px 50px 50px
+
+
+	.woocommerce-Button
+		@extend .btn
+		@extend .btn--packing
+		display: block
+		margin: 0 auto
+
+.woocommerce-form-login,
+.woocommerce-form-register
+	label
+		margin-bottom: 5px
+
+	a
+		color: $accent
+
+		&:hover,
+		&:focus
+			color: $accent
+			text-decoration: underline
+
+	.woocommerce-form-login__submit,
+	.woocommerce-Button
+		@extend .btn
+		@extend .btn--packing
+		display: block
+		margin: 0 auto
+	
+	.woocommerce-LostPassword
+		text-align: center
+
+
+.woocommerce-form-login__rememberme
+	display: none
+
+.form-row
+	text-align: left
+
+.menu-item img._before,
+.rtl .menu-item img._after
+	margin-right: 0
+
+.cabinet__nav
+
+	.is-active
+		a
+			color: #fff !important
+			background-color: $accent
+			text-decoration: none !important
+
+
+.cart_item
+	.product-name
+		position: relative
+		padding-left: 20px
+
+		.remove
+			position: absolute
+			left: 0
+
+
 
 
 @import "page"

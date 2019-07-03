@@ -71,6 +71,17 @@
 			input
 				margin: 0 3px
 
+		&_header
+			h2
+				font-size: 26px
+
+			span
+				font-size: 26px
+
+				span
+					span
+						font-size: 18px
+
 	.btn--shop
 		padding-left: 28px
 		padding-right: 10px
@@ -103,6 +114,17 @@
 
 
 @media only screen and (max-width : 1300px)
+	.tovar
+		h2
+			margin-bottom: 20px
+
+		&__info
+			.popular__item_price span
+				font-size: 26px
+
+		&__description p
+			font-size: 18px
+
 	.container
 		max-width: 1070px
 
@@ -122,6 +144,7 @@
 		line-height: 35px
 
 	.popular__item
+		width: 32%
 		&_content
 			font-size: 16px
 
@@ -139,8 +162,24 @@
 
 
 @media only screen and (max-width : 1200px)
+	.basket,
+	.article
+		padding: 30px 0
+
+	.woocommerce-product-gallery--with-images
+		width: 300px
+		margin-right: 40px
 	
+	section
+		zoom: 100%
+
+
 	.blog
+		padding: 30px 0
+
+		h2
+			margin-bottom: 20px
+
 		p
 			margin-bottom: 30px
 
@@ -192,13 +231,23 @@
 	.popular
 		padding: 40px 0
 
+		h2
+			margin-bottom: 30px
+
 		&__item
 			width: 32%
 			margin-bottom: 15px
 
-		h2
-			margin-bottom: 30px
+			&_header h2
+				font-size: 22px
+				margin-bottom: 0
 
+			&_main
+				p
+					font-size: 16px
+
+
+		
 
 	.category
 		padding-top: 0
@@ -230,6 +279,49 @@
 
 
 @media only screen and (max-width : 992px)
+	.blog__item a
+		padding-right: 10px
+
+		&::before
+			width: 8px
+			height: 8px
+
+
+	.cart_item td
+		font-size: 14px
+
+	.product-total,
+	.cart-subtotal,
+	.order-total
+		white-space: nowrap
+
+	.woocommerce-product-gallery--with-images
+		width: 40%
+		margin-right: 3%
+
+	.entry-summary
+		width: 55%
+
+	.tovar
+		h1
+			font-size: 30px
+			margin-bottom: 15px
+			margin-right: 0
+
+		&__description p
+			font-size: 16px
+
+
+	.woocommerce-MyAccount-content,
+	.basket__block
+		padding: 15px
+
+	.basket__block--cabinet
+		padding: 0
+
+	.woocommerce-info
+		font-size: 16px
+
 	.article
 		h1, h2, h3, h4, h5, h6
 			margin-bottom: 10px
@@ -256,7 +348,7 @@
 
 	.info--page
 		&__block
-			padding: 20px
+			padding: 15px
 	
 	.contacts
 		h2
@@ -318,11 +410,12 @@
 
 	.navigation
 		top: 25px
-		left: -45px
+		left: -57px
 
 		a
 			img
-				height: 22px
+				height: 30px
+				width: auto
 
 			span
 				font-size: 16px
@@ -377,8 +470,50 @@
 
 
 @media only screen and (max-width : 767px)
-	.crumbs
+	.btn--nav,
+	.cabinet__nav a
+		height: 40px
+		line-height: 40px
+		font-size: 16px
+		padding: 0 10px
+		margin-right: 0
+
+	label
+		margin-bottom: 5px
+
+	.basket table
+		font-size: 14px
+
+	table.shop_table_responsive tr td
+		display: block
+		text-align: center
+	table.shop_table_responsive tr th
+		display: none
+
+	.order__basket_total
+		th
+			display: block !important
+
+
+	.basket td,
+	.basket th
+		width: 100%
+
+	.basket .coupon input
+		width: 60%
+
+	.yith-wcan-list
+		padding: 10px 0
+
+		a
+			height: 40px
+			line-height: 40px
+			padding: 0 10px
+			font-size: 16px
+
+	.breadcrumbs
 		font-size: 18px
+		margin-bottom: 15px
 		
 	.tovar
 		h2
@@ -436,6 +571,12 @@
 
 
 @media only screen and (max-width : 576px)
+	.shop
+		padding: 30px 0
+
+	h2
+		font-size: 28px
+
 	.article
 		img
 			display: block
@@ -474,9 +615,6 @@
 
 	.hero
 		padding-bottom: 130px
-
-	.popular__item
-		padding: 10px
 	
 	.blog
 		p
@@ -496,6 +634,34 @@
 
 
 @media only screen and (max-width : 480px)
+	.cabinet__nav
+		ul
+			flex-wrap: wrap
+
+		li
+			width: 100%
+			a
+				width: 100%
+
+	.basket
+		p, ul
+			font-size: 16px
+
+		.coupon
+			flex-direction: column
+
+			input
+				width: 100%
+				margin-bottom: 10px
+
+
+	.woocommerce-product-gallery--with-images
+		width: 100%
+
+	.entry-summary
+		width: 100%
+
+
 	.tovar__label
 		width: 100%
 

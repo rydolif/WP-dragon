@@ -40,13 +40,13 @@
 				?>
 
 				<div class="nav__info">
-					<div class="header__info_tel">
+					<div class="nav__info_tel header__info_tel">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/call.png" alt="">
 						<a href="tel:<?php the_field('phone1', 'option'); ?>"><?php the_field('phone1', 'option'); ?></a>
 						<a href="tel:<?php the_field('phone2', 'option'); ?>"><?php the_field('phone2', 'option'); ?></a>
 						<a href="tel:<?php the_field('phone3', 'option'); ?>"><?php the_field('phone3', 'option'); ?></a>
 					</div>
-					<div class="header__info_time">
+					<div class="nav__info_time header__info_time">
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/img/time.png" alt="">
 						<p><?php the_field('time', 'option'); ?></p>
 					</div>
@@ -68,9 +68,18 @@
 					<p><?php the_field('time', 'option'); ?></p>
 				</div>
 
-				<a href="#" class="header__info_login">
+				<div class="header__info_login">
 					<img src="<?php echo get_template_directory_uri(); ?>/assets/img/login.png" alt="">
-				</a>
+
+					<?php 
+						wp_nav_menu( array(
+							'menu'=>'login',
+							'menu_class'=>'list',
+						    'theme_location'=>'menu',
+						) );
+					?>
+
+				</div>
 
 				<?php cart_link(); ?><?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
 				

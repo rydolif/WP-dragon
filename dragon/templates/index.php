@@ -11,7 +11,7 @@ get_header('page');
 
 			<img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="" class="hero__logo">
 			<h1>Японская кухня у Вас дома</h1>
-			<a href="#" class="btn--hero btn">Сделать заказ</a>
+			<a href="<?php echo get_home_url(); ?>/shop/" class="btn--hero btn">Сделать заказ</a>
 			
 		</div>
 	</section>
