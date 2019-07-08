@@ -31,7 +31,7 @@
 	position: relative
 	z-index: 1
 	color: #fff
-	font-size: 20px
+	font-size: 18px
 	line-height: 1
 
 	&::before
@@ -93,7 +93,7 @@
 
 		p
 			color: #fff
-			font-size: 20px
+			font-size: 18px
 
 		&_tel,
 		&_time
@@ -159,8 +159,6 @@
 				&:hover,
 				&:focus
 					color: $accent
-
-
 
 		&_cart
 			position: relative
@@ -334,8 +332,8 @@
 
 
 .hero
-	padding-top: 170px
-	padding-bottom: 350px
+	padding-top: 140px
+	padding-bottom: 280px
 	background-image: url(../img/hero--bg.png)
 	background-size: cover
 	background-repeat: no-repeat
@@ -344,8 +342,8 @@
 
 	&__logo
 		display: block
-		width: 800px
-		margin: 0 auto 40px
+		width: 750px
+		margin: 0 auto 30px
 
 	h1
 		color: #363636
@@ -373,6 +371,9 @@
 	a
 		img
 			transition: all .6s
+			width: 85%
+			display: block
+			margin: 0 auto
 
 		&:hover,
 		&:focus
@@ -602,7 +603,31 @@
 			img
 				width: 100%
 				height: auto
-			
+
+		&_info
+			text-align: right
+			color: #fff
+			z-index: 1
+
+			span
+				padding: 3px 5px
+				border-radius: 15px
+				display: inline-block
+				margin: 0 3px
+
+			.red
+				border: 1px solid #d8012d
+				color: #d8012d
+
+			.green
+				border: 1px solid green
+				color: green
+
+
+			.orange
+				border: 1px solid orange
+				color: orange
+
 
 		&_header
 			display: flex
@@ -628,10 +653,11 @@
 				margin-left: 10px
 
 				span
-					font-size: 36px
+					font-size: 32px
+
 					span
 						font-size: 24px
-						margin-left: 0
+						margin-left: 5px
 
 		&_main
 			display: flex
@@ -831,7 +857,7 @@
 	&__form
 		display: flex
 		justify-content: space-between
-		align-items: center
+		align-items: flex-end
 		width: 100%
 
 	&__hot
@@ -1207,7 +1233,6 @@
 .rtl .menu-item img._after
 	margin-left: 0
 
-
 .yith-wcan-list
 	padding: 25px 0
 	display: flex
@@ -1354,6 +1379,13 @@
 		margin-bottom: 5px
 		color: #fff
 
+	a
+		color: #fff
+
+		&:hover,
+		&:focus
+			text-decoration: underline
+
 .woocommerce-billing-fields__field-wrapper
 	label
 		margin-bottom: 5px
@@ -1436,6 +1468,7 @@ address
 .woocommerce-form-register
 	max-width: 500px
 	margin: 0 auto
+	padding: 20px
 
 	input
 		color: #363636
@@ -1502,7 +1535,16 @@ address
 			position: absolute
 			left: 0
 
+.reset_variations
+	position: absolute
 
+.variations_form
+	display: flex
+	flex-direction: column
+
+	select
+		margin-bottom: 10px
+		width: 100%
 
 
 @import "page"

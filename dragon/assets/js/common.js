@@ -14,6 +14,10 @@ $(function() {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
     slidesPerView: 3,
     spaceBetween: 30,
     loop: true,

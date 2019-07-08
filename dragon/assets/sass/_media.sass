@@ -1,6 +1,19 @@
 
 @media only screen and (max-width : 1800px)
 
+	.navigation
+		top: 25px
+
+		a
+			img
+				height: 30px
+				width: auto
+
+			span
+				font-size: 16px
+				padding: 10px
+
+
 	.container
 		max-width: 1400px
 
@@ -50,13 +63,12 @@
 		font-size: 18px
 		height: 35px
 		line-height: 35px
+
+
 	
 	.popular__item
 		&_price
 			font-size: 26px
-
-			span
-				font-size: 20px
 
 		&_button
 			input,
@@ -82,6 +94,19 @@
 					span
 						font-size: 18px
 
+		&_footer
+			.wbu-qty-button
+				width: 35px
+				height: 35px
+				line-height: 38px
+				font-size: 28px
+
+			input
+				width: 35px
+				height: 35px
+				line-height: 35px
+				margin: 0 2px
+
 	.btn--shop
 		padding-left: 28px
 		padding-right: 10px
@@ -93,6 +118,9 @@
 
 	.category__item
 		width: 30%
+
+		&:nth-child(2)
+			width: 35%
 
 		img
 			width: 100%
@@ -166,6 +194,9 @@
 	.article
 		padding: 30px 0
 
+	.shop
+		padding: 15px
+
 	.woocommerce-product-gallery--with-images
 		width: 300px
 		margin-right: 40px
@@ -215,7 +246,7 @@
 			margin-bottom: 15px
 
 	.navigation
-		left: -75px
+		left: -57px
 		transition: all .6s
 
 		&--active
@@ -407,19 +438,6 @@
 
 	.hamburger
 		display: block
-
-	.navigation
-		top: 25px
-		left: -57px
-
-		a
-			img
-				height: 30px
-				width: auto
-
-			span
-				font-size: 16px
-				padding: 10px
 
 	.header
 
@@ -676,9 +694,11 @@
 		padding-top: 40px
 
 	.header
+		padding: 13px 0
+
 		&--active,
 		&--menu
-			padding: 15px 0
+			padding: 13px 0
 
 		&__info
 			&_tel,
@@ -692,7 +712,7 @@
 		top: 15px
 
 	.nav
-		top: 52px
+		top: 47px
 
 		&__info
 			display: block
@@ -735,8 +755,11 @@
 
 	.category
 		&__item
-			width: 70%
-			margin-bottom: 15px
+			width: 85%
+			margin: 0 auto 15px
+
+			&:nth-child(2)
+				width: 100%
 
 		&__list
 			flex-wrap: wrap
