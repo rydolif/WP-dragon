@@ -59,9 +59,10 @@ get_header('page');
 						    'taxonomy'    => 'product_cat',
 						    'orderby'     => 'id', // здесь по какому полю сортировать
 						    'hide_empty'  => true, // скрывать категории без товаров или нет
-						    'parent'      => 0 // id родительской категории
+						    'parent'      => 0, // id родительской категории
+						    'exclude'        => '18,43,44',
 						  );
-
+						
 						$woo_categories = get_categories( $prod_cat_args );
 						  foreach ( $woo_categories as $woo_cat ) {
 						      $woo_cat_id = $woo_cat->term_id; //category ID
